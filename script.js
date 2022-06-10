@@ -60,6 +60,13 @@ const changePlayer = () => {
 };
 
 const checkWinner = () => {
+  const emptyPlace = playersMoves.find(item => !item);
+
+  if (emptyPlace === undefined) {
+    messageField.innerHTML = 'Draw';
+    startGame = false;
+  }
+  
   for (let i = 0; i < waysToWin.length; i++) {
     const combination = waysToWin[i];
 
@@ -69,24 +76,17 @@ const checkWinner = () => {
 
     if (!A || !B || !C) continue;
 
-
+    console.log(A, B, C);
 
     if (document.querySelector(`[data-cell-index = "${A}"]`).getAttribute('data-player') === document.querySelector(`[data-cell-index = "${B}"]`).getAttribute('data-player') && document.querySelector(`[data-cell-index = "${B}"]`).getAttribute('data-player') === document.querySelector(`[data-cell-index = "${C}"]`).getAttribute('data-player')) {
       const winner = document.querySelector(`[data-cell-index = "${A}"]`).getAttribute('data-player');
-      
+
       winner === 'X' ? messageField.style.color = xColor : messageField.style.color = oColor;
       messageField.innerHTML = (`Winner is ${winner}`);
 
       startGame = false;
       break;
     }
-  }
-
-  const emptyPlace = playersMoves.find(item => !item);
-
-  if (emptyPlace === undefined) {
-    messageField.innerHTML = 'Draw';
-    startGame = false;
   }
 };
 
