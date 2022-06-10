@@ -1,6 +1,9 @@
 const gameBoard = document.getElementById('game-board');
 const messageField = document.getElementById('text-field');
 const restartGameBtn = document.getElementById('restart-btn');
+const xColor = '#ff0000a3';
+const oColor = '#0000ff8c';
+
 
 const waysToWin = [
   [0, 1, 2],
@@ -21,6 +24,7 @@ cells.__proto__.map = Array.prototype.map;
 let startGame = true;
 
 let currentPlayer = 'X';
+
 messageField.innerHTML = `It's ${currentPlayer}'s turn`;
 
 gameBoard.addEventListener('click', (e) => {
@@ -32,7 +36,10 @@ gameBoard.addEventListener('click', (e) => {
 
   if (cell.innerHTML) return;
 
+  currentPlayer === 'X' ? cell.style.color = xColor : cell.style.color = oColor;
+
   cell.innerHTML = currentPlayer;
+
   cell.setAttribute('data-player', currentPlayer);
   playersMoves[cell.getAttribute('data-cell-index')] = cell.getAttribute('data-cell-index');
 
@@ -65,7 +72,10 @@ const checkWinner = () => {
 
 
     if (document.querySelector(`[data-cell-index = "${A}"]`).getAttribute('data-player') === document.querySelector(`[data-cell-index = "${B}"]`).getAttribute('data-player') && document.querySelector(`[data-cell-index = "${B}"]`).getAttribute('data-player') === document.querySelector(`[data-cell-index = "${C}"]`).getAttribute('data-player')) {
-      messageField.innerHTML = (`Winner is ${document.querySelector(`[data-cell-index = "${A}"]`).getAttribute('data-player')}`);
+      const winner = document.querySelector(`[data-cell-index = "${A}"]`).getAttribute('data-player');
+      
+      winner === 'X' ? messageField.style.color = xColor : messageField.style.color = oColor;
+      messageField.innerHTML = (`Winner is ${winner}`);
 
       startGame = false;
       break;
@@ -87,6 +97,7 @@ const restartGame = () => {
   playersMoves = [...clearMoves];
 
   currentPlayer = 'X';
+  messageField.style.color = 'black'
   messageField.innerHTML = `It's X's turn`;
 
   startGame = true;
