@@ -97,7 +97,7 @@ const restartGame = () => {
   playersMoves = [...clearMoves];
 
   currentPlayer = 'X';
-  messageField.style.color = 'black'
+  messageField.style.color = '#00000099'
   messageField.innerHTML = `It's X's turn`;
 
   startGame = true;
