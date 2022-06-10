@@ -9,6 +9,10 @@
   font-family: "Kdam Thmor Pro";
 }
 
+body {
+  background-color: #cdf8ea;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -17,7 +21,7 @@
   margin: 60px auto;
   width: 1000px;
   height: 800px;
-  border: 1px #d9d9d9 dashed;
+  border: 4px rgba(29, 34, 31, 0.28) solid;
 }
 
 .game-container {
@@ -34,7 +38,7 @@
   align-items: center;
   justify-content: center;
   font-size: 64px;
-  border: 1px black solid;
+  border: 4px rgba(0, 0, 0, 0.432) solid;
   font-family: "Varela Round";
 }
 .game-container__cell:nth-child(1), .game-container__cell:nth-child(2), .game-container__cell:nth-child(3) {
@@ -49,11 +53,6 @@
 .game-container__cell:nth-child(7), .game-container__cell:nth-child(8), .game-container__cell:nth-child(9) {
   border-bottom: none;
 }
-.game-container__cross-line {
-  position: absolute;
-  background-color: black;
-  height: 40px;
-}
 
 .primary-btn {
   position: relative;
@@ -63,7 +62,7 @@
   border-radius: 23px;
   background-color: #afdaaf;
   border: none;
-  box-shadow: 0px 17px 0px 0px #79b58b;
+  box-shadow: 0px 12px 0px 0px #79b58b;
   font-size: 27px;
   color: white;
   transition-duration: 500ms;
@@ -71,13 +70,12 @@
 }
 .primary-btn:hover {
   top: 3px;
-  box-shadow: 0px 15px 0px 0px #79b58b;
+  box-shadow: 0px 10px 0px 0px #79b58b;
 }
 
 .text {
   font-size: 44px;
+  color: #00000099;
 }
-
-/* remove border for edges */
 
 /*# sourceMappingURL=main.css.map */
